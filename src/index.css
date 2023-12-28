@@ -29,6 +29,11 @@ body {
   min-height: 100vh;
 }
 
+.container {
+  max-width: 80%;
+  margin-inline: auto;
+}
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;

@@ -32,3 +32,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   </React.StrictMode>
 );
 ```
+
+### React Query https://refine.dev/blog/react-query-guide/#introduction
