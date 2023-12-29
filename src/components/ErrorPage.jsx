@@ -1,6 +1,9 @@
 import React from 'react';
+import { useRouteError } from 'react-router-dom';
 
 export default function ErrorPage() {
+  const error = useRouteError();
+  console.error(error);
   return (
     <div className='surface-section px-4 py-8 md:px-6 lg:px-8'>
       <div
@@ -19,6 +22,9 @@ export default function ErrorPage() {
       </div>
       <p className='text-700 text-3xl mt-0 mb-6 text-center'>
         Sorry, we could not find the page.
+      </p>
+      <p className='text-700 text-3xl mt-0 mb-6 text-center'>
+        <i>{error.statusText || error.message}</i>
       </p>
       <div className='text-center'>
         <button

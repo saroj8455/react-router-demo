@@ -13,10 +13,22 @@ const getPosts = async () => {
 };
 
 const getPostById = async (postId) => {
-  const res = await axios.get(
-    `https://jsonplaceholder.typicode.com/posts/${postId}`
-  );
-  return res.data;
+  // cancelToken and source declaration
+  // save the new request for cancellation
+  const source = axios.CancelToken.source();
+
+  // source && source.cancel('Operation canceled due to new request.');
+  try {
+    const res = await axios.get(
+      `https://jsonplaceholder.typicode.com/posts/${postId}`,
+      {
+        cancelToken: source.token,
+      }
+    );
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export default function Landing() {
